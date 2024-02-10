@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 const perfil = require('../../fixtures/perfil.json')
-
+import { faker } from '@faker-js/faker'
 import produtosPage from '../../support/page-objects/produtos.page';
 
 
@@ -57,8 +57,8 @@ context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('[class="mini-cart-items"]').click()
         cy.get('[class="button checkout wc-forward"]').eq(1).click()
 
-        let nome = 'Mauricio'
-        let sobrenome = 'Junior'
+        let nome = faker.person.firstName()
+        let sobrenome = faker.person.lastName()
         let pais = 'Brasil'
         let endereco = 'R José'
         let cidade = 'Sorocaba'
